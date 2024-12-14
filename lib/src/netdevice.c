@@ -20,6 +20,20 @@ int netdevice_getdevice(unsigned int defn, char *devname) {
   char errbuf[PCAP_ERRBUF_SIZE];
   char buf[MAX_LINEBUF];
 
+  int netdevice_getdevice(int idx, char *devname) {
+    char buf[MAX_LINEBUF];
+    printf("Enter the name of the network device: ");
+    if (fgets(buf, MAX_LINEBUF, stdin) == NULL) {
+        fprintf(stderr, "Error: Failed to read input from stdin.\n");
+        return NETDEVICE_ERR; // Return error code
+    }
+    // Remove newline character
+    buf[strcspn(buf, "\n")] = '\0';
+    strncpy(devname, buf, MAX_LINEBUF);
+    devname[MAX_LINEBUF - 1] = '\0'; // Ensure null-terminated string
+    return NETDEVICE_OK; // Success
+}
+  
   if (pcap_findalldevs(&alldevs, errbuf) == -1) {
     fprintf(stderr, "%s(): Error in pcap_findalldevs: %s\n", __func__, errbuf);
     return NETDEVICE_ERR;
