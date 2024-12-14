@@ -1,0 +1,5 @@
+Capturing packets on interface eth0
+[INFO] Added to ARP table: IP=172.17.144.1, MAC=00:15:5d:80:39:2a
+Capturing packets on interface eth0
+[INFO] Added to ARP table: IP=172.17.144.1, MAC=00:15:5d:80:39:2a
+[INFO] Added to ARP table: IP=172.17.144.1, MAC=00:15:5d:80:39:2a
